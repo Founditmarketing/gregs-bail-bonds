@@ -399,8 +399,8 @@ const Home = () => {
                   Jail doesn't wait.
                 </h2>
                 <p className="text-white/30 text-2xl mb-6" style={{ fontFamily: 'var(--font-display)' }}>Neither does Greg.</p>
-                <a href={BUSINESS.phoneTel} className="phone-shimmer">
-                  <span className="text-bail phone-glow text-3xl sm:text-4xl font-bold tracking-tight hover:text-white transition-colors"
+                <a href={BUSINESS.phoneTel}>
+                  <span className="phone-shimmer text-bail phone-glow text-3xl sm:text-4xl font-bold tracking-tight hover:text-white transition-colors"
                     style={{ fontFamily: 'var(--font-display)' }}>
                     {BUSINESS.phone}
                   </span>
