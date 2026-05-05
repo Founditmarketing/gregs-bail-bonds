@@ -66,7 +66,7 @@ const ClipRevealImage = ({ src, alt, className = '' }: { src: string; alt: strin
 };
 
 /* ── Timeline step with scroll-triggered animations ── */
-const TimelineStep = ({ step, index, isLast }: { step: typeof STEPS[0]; index: number; isLast: boolean }) => {
+const TimelineStep = ({ step, index, isLast, dark }: { step: typeof STEPS[0]; index: number; isLast: boolean; dark?: boolean }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   return (
@@ -78,15 +78,15 @@ const TimelineStep = ({ step, index, isLast }: { step: typeof STEPS[0]; index: n
         </div>
         {!isLast && (
           <div className={`step-line step-line-animated ${isInView ? 'visible' : ''}`}
-            style={{ animationDelay: `${index * 0.12 + 0.2}s` }} />
+            style={{ animationDelay: `${index * 0.12 + 0.2}s`, background: dark ? 'rgba(255,255,255,0.1)' : undefined }} />
         )}
       </div>
       <motion.div className="step-content"
         initial={{ opacity: 0, x: 20 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ delay: index * 0.12 + 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
-        <h3 className="text-lg">{step.title}</h3>
-        <p className="text-[var(--color-slate-9)] text-[15px] leading-relaxed">{step.desc}</p>
+        <h3 className={`text-lg ${dark ? 'text-white' : ''}`}>{step.title}</h3>
+        <p className={`text-[15px] leading-relaxed ${dark ? 'text-white/50' : 'text-[var(--color-slate-9)]'}`}>{step.desc}</p>
       </motion.div>
     </div>
   );
@@ -209,14 +209,14 @@ const Home = () => {
         </div>
       </div>
 
-      {/* ═══════════════════ HOW IT WORKS — ANIMATED TIMELINE ═══════════════════ */}
-      <section id="how-bail-works" className="py-24 sm:py-28">
-        <div className="container mx-auto px-4 max-w-4xl">
+      {/* ═══════════════════ HOW IT WORKS — DARK SECTION ═══════════════════ */}
+      <section id="how-bail-works" className="py-24 sm:py-28 bg-charcoal relative grain overflow-hidden">
+        <div className="container mx-auto px-4 max-w-4xl relative z-10">
           <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
             <Reveal className="md:col-span-4">
               <div className="md:sticky md:top-28">
-                <h2 className="accent-underline">How It Works</h2>
-                <p className="text-[var(--color-slate-8)] mt-4 text-lg">Most people are released in 2 to 4 hours.</p>
+                <h2 className="text-white accent-underline">How It Works</h2>
+                <p className="text-white/40 mt-4 text-lg">Most people are released in 2 to 4 hours.</p>
                 <hr className="hr-accent mt-6" />
               </div>
             </Reveal>
@@ -224,7 +224,7 @@ const Home = () => {
             <div className="md:col-span-8">
               <div className="step-timeline">
                 {STEPS.map((step, i) => (
-                  <TimelineStep key={step.num} step={step} index={i} isLast={i === STEPS.length - 1} />
+                  <TimelineStep key={step.num} step={step} index={i} isLast={i === STEPS.length - 1} dark />
                 ))}
               </div>
             </div>
@@ -271,6 +271,27 @@ const Home = () => {
         </div>
       </section>
 
+      {/* ═══════════════════ TRUST BANNER — FULL ORANGE ═══════════════════ */}
+      <section className="bg-bail py-14 sm:py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-center">
+            {[
+              { value: '24/7', label: 'Always Available' },
+              { value: '13+', label: 'Years Experience' },
+              { value: '4', label: 'Office Locations' },
+              { value: '2-4hr', label: 'Typical Release' },
+            ].map((stat, i) => (
+              <Reveal key={i} delay={i * 0.08} direction="scale">
+                <div>
+                  <div className="text-white text-3xl sm:text-4xl font-bold" style={{ fontFamily: 'var(--font-display)' }}>{stat.value}</div>
+                  <div className="text-white/70 text-sm font-semibold mt-1">{stat.label}</div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════════════ SERVICES — CLIP-PATH REVEALS ═══════════════════ */}
       <section id="home-services" className="py-24 sm:py-28">
         <div className="container mx-auto px-4 max-w-5xl">
@@ -305,29 +326,31 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ═══════════════════ LOCATIONS ═══════════════════ */}
-      <section id="home-locations" className="py-20 bg-[var(--color-slate-2)]">
-        <div className="container mx-auto px-4 max-w-4xl">
+      {/* ═══════════════════ LOCATIONS — IMAGE BG ═══════════════════ */}
+      <section id="home-locations" className="py-24 relative overflow-hidden">
+        <img src={IMAGES.hero} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-[oklch(15%_0.020_250/0.88)]" />
+        <div className="container mx-auto px-4 max-w-4xl relative z-10">
           <Reveal><div className="mb-10 text-center">
-            <h2 className="accent-underline">4 Offices Across PA & WV</h2>
-            <p className="text-[var(--color-slate-8)] mt-3">Same-day bond posting at all locations. Greg covers every county in between.</p>
+            <h2 className="text-white accent-underline">4 Offices Across PA & WV</h2>
+            <p className="text-white/50 mt-3">Same-day bond posting at all locations. Greg covers every county in between.</p>
             <hr className="hr-accent mt-6 mx-auto" />
           </div></Reveal>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {LOCATIONS.map((loc, i) => (
               <Reveal key={loc.city} delay={i * 0.08} direction="scale">
-                <div className="bg-white rounded-xl p-6 text-center card-lift card-accent border border-[var(--color-slate-6)]">
-                  <div className="w-10 h-10 bg-[var(--color-orange-2)] rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <MapPin className="h-5 w-5 text-bail" />
+                <div className="bg-white/8 backdrop-blur-sm rounded-xl p-6 text-center card-lift border border-white/10 hover:bg-white/12 transition-colors">
+                  <div className="w-10 h-10 bg-[var(--color-orange-9)] rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <MapPin className="h-5 w-5 text-white" />
                   </div>
-                  <h3 className="text-sm font-bold">{loc.city}</h3>
-                  <p className="text-[var(--color-slate-8)] text-xs mt-1">{loc.region}</p>
+                  <h3 className="text-sm font-bold text-white">{loc.city}</h3>
+                  <p className="text-white/40 text-xs mt-1">{loc.region}</p>
                 </div>
               </Reveal>
             ))}
           </div>
           <Reveal delay={0.4}><div className="mt-8 text-center">
-            <Link to="/areas" className="inline-flex items-center gap-2 text-bail font-bold text-sm hover:underline">
+            <Link to="/areas" className="inline-flex items-center gap-2 text-bail font-bold text-sm hover:text-white transition-colors">
               See All Areas We Cover <ArrowRight className="h-4 w-4" />
             </Link>
           </div></Reveal>
@@ -344,7 +367,7 @@ const Home = () => {
           <div className="space-y-3">
             {FAQ_DATA.slice(0, 3).map((item, i) => (
               <Reveal key={i} delay={i * 0.08}>
-                <div className="bg-[var(--color-slate-2)] rounded-xl p-6 border border-[var(--color-slate-6)] card-accent">
+                <div className="rounded-xl p-6 border border-[var(--color-slate-5)] bg-white shadow-sm card-accent">
                   <h3 className="text-sm font-bold mb-3 text-[var(--color-slate-12)]">{item.question}</h3>
                   <p className="text-[var(--color-slate-8)] text-sm leading-relaxed">{item.answer}</p>
                 </div>
