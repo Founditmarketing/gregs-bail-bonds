@@ -272,8 +272,9 @@ const Home = () => {
       </section>
 
       {/* ═══════════════════ TRUST BANNER — FULL ORANGE ═══════════════════ */}
-      <section className="bg-bail py-14 sm:py-16">
-        <div className="container mx-auto px-4">
+      <section className="relative py-14 sm:py-16 overflow-hidden" style={{ background: 'linear-gradient(120deg, oklch(28% 0.06 55) 0%, oklch(52% 0.16 55) 45%, oklch(66% 0.185 55) 100%)' }}>
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")", backgroundSize: '128px' }} />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-center">
             {[
               { value: '24/7', label: 'Always Available' },
