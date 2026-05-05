@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { motion, useScroll, useSpring } from 'motion/react';
 import { Navbar } from './components/navbar';
 import { Footer } from './components/footer';
 import { ScrollToTop } from './components/scroll-to-top';
@@ -12,9 +13,21 @@ import FAQ from './pages/faq';
 import Contact from './pages/contact';
 import Privacy from './pages/privacy';
 
+function ScrollProgressBar() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
+  return (
+    <motion.div
+      className="scroll-progress"
+      style={{ scaleX, width: '100%' }}
+    />
+  );
+}
+
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollProgressBar />
       <ScrollToTop />
       <Navbar />
       <Routes>
