@@ -14,11 +14,11 @@ const navLinks: { name: string; path: string; icon: React.ReactNode }[] = [
 ];
 
 const TICKER_ITEMS = [
-  `📞 ${BUSINESS.phone}`,
-  '⚡ Available 24/7/365',
-  '📍 Philadelphia · Chambersburg · Harrisburg · Poconos',
-  '✍️ Sign bail agreement online via DocuSign',
-  '🛡️ Licensed PA Bail Bondsman · 13+ Years',
+  `${BUSINESS.phone}`,
+  'Available 24/7/365',
+  'Philadelphia · Chambersburg · Harrisburg · Poconos',
+  'Sign bail agreement online via DocuSign',
+  'Licensed PA Bail Bondsman · 13+ Years',
 ];
 
 export const Navbar = () => {
