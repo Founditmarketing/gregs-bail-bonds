@@ -161,7 +161,7 @@ const Home = () => {
 
               <motion.a href={BUSINESS.phoneTel} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.85, duration: 0.5 }}
                 className="block mb-2 group">
-                <span className="text-bail phone-glow phone-shimmer text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight group-hover:text-white transition-colors"
+                <span className="phone-shimmer phone-glow text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight"
                   style={{ fontFamily: 'var(--font-display)' }}>
                   {BUSINESS.phone}
                 </span>
@@ -400,7 +400,7 @@ const Home = () => {
                 </h2>
                 <p className="text-white/30 text-2xl mb-6" style={{ fontFamily: 'var(--font-display)' }}>Neither does Greg.</p>
                 <a href={BUSINESS.phoneTel}>
-                  <span className="phone-shimmer text-bail phone-glow text-3xl sm:text-4xl font-bold tracking-tight hover:text-white transition-colors"
+                  <span className="phone-shimmer phone-glow text-3xl sm:text-4xl font-bold tracking-tight"
                     style={{ fontFamily: 'var(--font-display)' }}>
                     {BUSINESS.phone}
                   </span>

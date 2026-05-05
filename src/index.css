@@ -323,34 +323,30 @@
   animation: aurora-drift-3 18s ease-in-out infinite;
 }
 
-/* ── Phone number shimmer sweep ── */
-@keyframes shimmer-sweep {
-  0% { left: -100%; }
-  100% { left: 200%; }
+/* ── Phone number shimmer — background-clip:text, zero box artifact ── */
+@keyframes shimmer-bg {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
 }
 .phone-shimmer {
-  position: relative;
-  overflow: hidden;
   display: inline-block;
-}
-.phone-shimmer::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
   background: linear-gradient(
     90deg,
-    transparent 0%,
-    oklch(100% 0 0 / 0.08) 40%,
-    oklch(100% 0 0 / 0.15) 50%,
-    oklch(100% 0 0 / 0.08) 60%,
-    transparent 100%
+    var(--color-orange-9)   0%,
+    var(--color-orange-9)   30%,
+    oklch(88% 0.14 55)      48%,
+    oklch(95% 0.08 55)      50%,
+    oklch(88% 0.14 55)      52%,
+    var(--color-orange-9)   70%,
+    var(--color-orange-9)   100%
   );
-  animation: shimmer-sweep 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: shimmer-bg 3.5s linear infinite;
   animation-delay: 2s;
-  pointer-events: none;
 }
 
 /* ── Clip-path curtain reveal for service cards ── */
@@ -451,12 +447,13 @@
   width: 48px;
 }
 
-/* ── Phone number glow on dark backgrounds ── */
+/* ── Phone number glow — filter:drop-shadow works alongside background-clip:text ── */
 .phone-glow {
-  text-shadow: 0 0 40px oklch(66% 0.185 55 / 0.3);
+  filter: drop-shadow(0 0 24px oklch(66% 0.185 55 / 0.35));
+  transition: filter 0.3s ease;
 }
 .phone-glow:hover {
-  text-shadow: 0 0 60px oklch(66% 0.185 55 / 0.45);
+  filter: drop-shadow(0 0 40px oklch(66% 0.185 55 / 0.55));
 }
 
 /* ── Card with accent bottom reveal ── */
@@ -617,7 +614,11 @@
   .aurora-orb { animation: none; }
   .gradient-border::before,
   .gradient-border::after { animation: none; }
-  .phone-shimmer::after { animation: none; }
+  .phone-shimmer {
+    animation: none;
+    background-position: 0% center;
+    /* static orange, no sweep */
+  }
   .clip-reveal { clip-path: none; transition: none; }
   .step-line-animated { transform: scaleY(1); }
   .step-number-animated { opacity: 1; }
