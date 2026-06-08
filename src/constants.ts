@@ -9,8 +9,8 @@ export const BUSINESS = {
   name: "Greg's Bail Bonds of Philly",
   phone: "717-809-0504",
   phoneTel: "tel:17178090504",
-  domain: "gregsbailbondsofphilly.com",
-  url: "https://gregsbailbondsofphilly.com",
+  domain: "centercitybailbonds.com",
+  url: "https://centercitybailbonds.com",
   docuSignUrl:
     "https://powerforms.docusign.net/07c12434-d9b7-4673-af54-697d1620ae41?acct=f9d9aa56-250c-4c8f-9a7f-ac54ca827d7f&env=na3&accountId=f9d9aa56-250c-4c8f-9a7f-ac54ca827d7f",
   license: "Licensed PA Bail Bondsman",
