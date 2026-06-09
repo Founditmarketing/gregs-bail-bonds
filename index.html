@@ -29,10 +29,114 @@
     <link rel="preconnect" href="https://www.google.com">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://powerforms.docusign.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&display=swap" as="style">
 
     <!-- Schema -->
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","@id":"https://centercitybailbonds.com/#business","name":"Greg's Bail Bonds of Philly","description":"Trusted 24/7 bail bond services across Pennsylvania and West Virginia. Over 13 years experience. Licensed PA bail bondsman.","url":"https://centercitybailbonds.com","telephone":"+1-717-809-0504","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"areaServed":[{"@type":"State","name":"Pennsylvania"},{"@type":"State","name":"West Virginia"}],"address":[{"@type":"PostalAddress","addressLocality":"Philadelphia","addressRegion":"PA","addressCountry":"US"},{"@type":"PostalAddress","addressLocality":"Chambersburg","addressRegion":"PA","addressCountry":"US"},{"@type":"PostalAddress","addressLocality":"Harrisburg","addressRegion":"PA","addressCountry":"US"},{"@type":"PostalAddress","addressLocality":"East Stroudsburg","addressRegion":"PA","addressCountry":"US"}]},{"@type":"WebSite","@id":"https://centercitybailbonds.com/#website","url":"https://centercitybailbonds.com","name":"Greg's Bail Bonds of Philly"},{"@type":"Service","name":"24/7 Bail Bond Services","provider":{"@id":"https://centercitybailbonds.com/#business"},"serviceType":"Bail Bonds","description":"Fast, reliable bail bond services available 24 hours a day, 7 days a week across Pennsylvania and West Virginia.","areaServed":[{"@type":"State","name":"Pennsylvania"},{"@type":"State","name":"West Virginia"}]}]}
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://centercitybailbonds.com/#business",
+          "name": "Greg's Bail Bonds of Philly",
+          "description": "Trusted 24/7 bail bond services across Pennsylvania and West Virginia. Over 13 years experience. Licensed PA bail bondsman.",
+          "url": "https://centercitybailbonds.com",
+          "telephone": "+1-717-809-0504",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "00:00",
+            "closes": "23:59"
+          },
+          "areaServed": [
+            {"@type": "State", "name": "Pennsylvania"},
+            {"@type": "State", "name": "West Virginia"}
+          ],
+          "address": [
+            {"@type": "PostalAddress", "addressLocality": "Philadelphia", "addressRegion": "PA", "addressCountry": "US"},
+            {"@type": "PostalAddress", "addressLocality": "Chambersburg", "addressRegion": "PA", "addressCountry": "US"},
+            {"@type": "PostalAddress", "addressLocality": "Harrisburg", "addressRegion": "PA", "addressCountry": "US"},
+            {"@type": "PostalAddress", "addressLocality": "East Stroudsburg", "addressRegion": "PA", "addressCountry": "US"}
+          ],
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".hero-description", ".address-info"]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://centercitybailbonds.com/#website",
+          "url": "https://centercitybailbonds.com",
+          "name": "Greg's Bail Bonds of Philly",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://centercitybailbonds.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "24/7 Bail Bond Services",
+          "provider": {"@id": "https://centercitybailbonds.com/#business"},
+          "serviceType": "Bail Bonds",
+          "description": "Fast, reliable bail bond services available 24 hours a day, 7 days a week across Pennsylvania and West Virginia.",
+          "areaServed": [
+            {"@type": "State", "name": "Pennsylvania"},
+            {"@type": "State", "name": "West Virginia"}
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What happens after someone is arrested?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Once someone is arrested, they must have a bond set before they can be released. In most cases, a magistrate judge will determine the bond amount within 24 hours. Call Greg's Bail Bonds immediately and we'll verify the bond status and start the release process right away."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does a surety bond work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A surety bond is posted by a licensed bail bondsman. The defendant or co-signer pays a percentage of the total bond amount as a non-refundable fee. The bondsman guarantees the full bond amount to the court. If the defendant appears at all required court dates, no further action is needed."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does it take to be released after posting bail?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "In most cases, it takes 2 to 4 hours after the bond is posted for a defendant to be released, depending on how busy the jail is and how quickly they process paperwork."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the bail bond fee refundable?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The fee paid to a bail bondsman is non-refundable. It covers the cost of securing the defendant's release. If you used collateral such as property or a car title, it will be returned once the case is resolved and all obligations are met."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can Greg help with outstanding warrants?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. If there's a warrant out for arrest, Greg can often arrange a walk-through, allowing the defendant to be processed and released without spending unnecessary time in jail. This is especially useful for non-violent offenses and probation violations."
+              }
+            }
+          ]
+        }
+      ]
+    }
     </script>
   </head>
   <body>
@@ -40,3 +144,4 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+
