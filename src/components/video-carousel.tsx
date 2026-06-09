@@ -79,6 +79,9 @@ export const VideoCarousel = ({ videos, heading, subheading }: Props) => {
               src={`https://img.youtube.com/vi/${v.id}/mqdefault.jpg`}
               alt={v.title}
               className="w-28 h-16 object-cover"
+              loading="lazy"
+              width={112}
+              height={64}
             />
           </button>
         ))}

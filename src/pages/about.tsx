@@ -11,7 +11,7 @@ const About = () => (
           <div className="md:col-span-7">
             <Reveal>
               <div className="flex items-center gap-3 mb-6">
-                <img src={IMAGES.logoBadge} alt="Greg's Bail Bonds" className="h-12 w-auto" />
+                <img src={IMAGES.logoBadge} alt="Greg's Bail Bonds" className="h-12 w-auto" loading="lazy" width={120} height={48} />
                 <div>
                   <span className="text-bail text-xs font-semibold uppercase tracking-widest">About</span>
                   <h1 className="text-3xl sm:text-4xl font-bold text-black leading-tight">Greg's Bail Bonds</h1>
@@ -64,10 +64,10 @@ const About = () => (
           </div>
           <div className="md:col-span-5 space-y-6">
             <Reveal direction="right" delay={0.1}>
-              <img src={IMAGES.servicesPage} alt="Bail bonds" className="rounded-xl shadow-xl w-full" />
+              <img src={IMAGES.servicesPage} alt="Bail bonds" className="rounded-xl shadow-xl w-full" loading="lazy" width={600} height={400} />
             </Reveal>
             <Reveal direction="right" delay={0.2}>
-              <img src={IMAGES.handcuffs} alt="Bail support" className="rounded-xl shadow-lg w-full" />
+              <img src={IMAGES.handcuffs} alt="Bail support" className="rounded-xl shadow-lg w-full" loading="lazy" width={600} height={400} />
             </Reveal>
             <Reveal direction="right" delay={0.25}>
               <div className="bg-charcoal rounded-xl p-6">

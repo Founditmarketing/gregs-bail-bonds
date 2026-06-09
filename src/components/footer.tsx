@@ -12,7 +12,7 @@ export const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <img src={IMAGES.logoBadge} alt="Greg's Bail Bonds" className="h-8 w-auto" />
+              <img src={IMAGES.logoBadge} alt="Greg's Bail Bonds" className="h-8 w-auto" loading="lazy" width={80} height={32} />
               <span className="text-base font-bold text-white">Greg's Bail Bonds</span>
             </div>
             <p className="text-white/40 text-sm leading-relaxed mb-5">

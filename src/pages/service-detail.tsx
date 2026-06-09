@@ -44,7 +44,7 @@ const ServiceDetail = () => {
           <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
             <div className="md:col-span-2 space-y-6">
               <Reveal>
-                <img src={service.image} alt={service.title} className="w-full h-64 object-cover object-top rounded-xl mb-6" />
+                <img src={service.image} alt={service.title} className="w-full h-64 object-cover object-top rounded-xl mb-6" loading="lazy" width={800} height={256} />
               </Reveal>
               <Reveal delay={0.05}>
                 <p className="text-gray-600 text-lg leading-relaxed">{service.intro}</p>

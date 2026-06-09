@@ -60,7 +60,7 @@ const ClipRevealImage = ({ src, alt, className = '' }: { src: string; alt: strin
   const isInView = useInView(ref, { once: true, margin: '-80px' });
   return (
     <div ref={ref} className={`clip-reveal ${isInView ? 'visible' : ''}`}>
-      <img src={src} alt={alt} className={className} />
+      <img src={src} alt={alt} className={className} loading="lazy" width={600} height={400} />
     </div>
   );
 };
@@ -238,7 +238,7 @@ const Home = () => {
           <div className="grid md:grid-cols-12 gap-10 max-w-6xl mx-auto items-center">
             <Reveal className="md:col-span-5" direction="left">
               <div className="img-accent-wrap">
-                <img src={IMAGES.handcuffs} alt="Bail bonds help" className="rounded-xl shadow-xl w-full h-auto" />
+                <img src={IMAGES.handcuffs} alt="Bail bonds help" className="rounded-xl shadow-xl w-full h-auto" loading="lazy" width={600} height={400} />
               </div>
             </Reveal>
             <div className="md:col-span-7 md:pl-6">
@@ -329,7 +329,7 @@ const Home = () => {
 
       {/* ═══════════════════ LOCATIONS — IMAGE BG ═══════════════════ */}
       <section id="home-locations" className="py-24 relative overflow-hidden">
-        <img src={IMAGES.hero} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover" />
+        <img src={IMAGES.hero} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover" loading="lazy" width={1920} height={1080} />
         <div className="absolute inset-0 bg-[oklch(15%_0.020_250/0.88)]" />
         <div className="container mx-auto px-4 max-w-4xl relative z-10">
           <Reveal><div className="mb-10 text-center">

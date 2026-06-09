@@ -55,6 +55,9 @@ export const BeforeAfterSlider = ({
           alt={beforeAlt}
           draggable={false}
           className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
+          width={800}
+          height={600}
         />
 
         {/* AFTER — same full size, stationary — clip reveals it from the left */}
@@ -67,6 +70,9 @@ export const BeforeAfterSlider = ({
             clipPath: `inset(0 ${100 - sliderPos}% 0 0)`,
             WebkitClipPath: `inset(0 ${100 - sliderPos}% 0 0)`,
           }}
+          loading="lazy"
+          width={800}
+          height={600}
         />
 
         {/* Divider line — sharp, no blur */}

@@ -33,7 +33,7 @@ const Services = () => (
             <Reveal key={s.slug} delay={i * 0.05} direction={i % 3 === 0 ? 'left' : i % 3 === 2 ? 'right' : 'up'}>
               <Link to={`/services/${s.slug}`} className="group block bg-white rounded-xl overflow-hidden card-lift border border-gray-100 h-full">
                 <div className="h-48 overflow-hidden relative">
-                  <img src={s.image} alt={s.title} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                  <img src={s.image} alt={s.title} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy" width={400} height={300} />
                   <span className={`absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${SEVERITY_CLASS[s.severity]}`}>
                     {SEVERITY_LABEL[s.severity]}
                   </span>
